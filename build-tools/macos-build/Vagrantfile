@@ -14,8 +14,8 @@ sudo apt-get install -y docker-ce
 [ -d /home/vagrant/.ssh ] && echo '%{public_key}' >> /home/vagrant/.ssh/authorized_keys; true
 [ -d /home/vagrant/.ssh ] && chmod 600 /home/vagrant/.ssh/authorized_keys; true
 sudo usermod -aG docker vagrant
-git clone -b #{ENV['BRANCH']} --single-branch https://github.com/vyos/vyos-build /opt/vyos-build
-docker run --rm -t --privileged -v /opt/vyos-build:/vyos -w /vyos vyos/vyos-build:#{ENV['BRANCH']} \
+git clone -b #{ENV['BRANCH']} --single-branch https://github.com/keyos/keyos-build /opt/keyos-build
+docker run --rm -t --privileged -v /opt/keyos-build:/keyos -w /keyos keyos/keyos-build:#{ENV['BRANCH']} \
   /bin/bash -c './configure #{ENV['CONFIGUREOPT']} && make #{ENV['MAKEOPT']}'
 SCRIPT
 
@@ -34,6 +34,6 @@ def define_vm(config, hostname, ip)
 end
 
 Vagrant.configure("2") do |config|
-  define_vm(config, "vyos", "10.1.1.254")
+  define_vm(config, "keyos", "10.1.1.254")
   config.vm.synced_folder ".", "/vagrant", disabled: true
 end

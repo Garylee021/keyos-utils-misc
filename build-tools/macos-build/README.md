@@ -1,4 +1,4 @@
-## Build VyOS iso in MAC
+## Build KeyOS iso in MAC
 
   `make build`
 
@@ -8,7 +8,7 @@
 
 ### Custom build options
 
-  `os=jessie64 branch=crux configureopt='--architecture amd64 --build-by richard@vyos.io' make build`
+  `os=jessie64 branch=crux configureopt='--architecture amd64 --build-by richard@keyos.io' make build`
 
 ### Clean up VM
 

@@ -18,7 +18,7 @@ build: init
 	OS=$(os) BRANCH=$(branch) CONFIGUREOPT='$(configureopt)' MAKEOPT=$(makeopt) \
 	vagrant up
 	cd $(build_dir); \
-	rsync -Lam --include='*$(buildsuffix)' --exclude='*' vagrant@10.1.1.254:/opt/vyos-build/build/ .
+	rsync -Lam --include='*$(buildsuffix)' --exclude='*' vagrant@10.1.1.254:/opt/keyos-build/build/ .
 
 .PHONY: clean
 clean:
